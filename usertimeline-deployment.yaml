@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: usertimeline-deployment
+  labels:
+    app: usertimeline-deployment
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: usertimeline-deployment
+  template:
+    metadata:
+      labels:
+        app: usertimeline-deployment
+    spec:
+      containers:
+        - name: usertimeline-deployment
+          image: karannishad/usertimeline:latest
+          ports:
+            - containerPort: 8080
